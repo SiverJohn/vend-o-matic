@@ -1,0 +1,25 @@
+services:
+  app:
+    image: python
+    working_dir: /app
+    volumes: 
+      - type: bind
+        source: ./app/
+        target: /app
+    ports:
+      - 127.0.0.1:3000:3000
+    tty: true
+    stdin_open: true
+      #command: sh -c "pip install -r requirements.txt && python devUtils.py && /bin/bash"
+    command: sh -c "pip install -r requirements.txt && python devUtils.py && python main.py"
+  postgres:
+    image: postgres:alpine
+    working_dir: /database
+    volumes:
+      - ./database:/database
+    environment:
+      POSTGRES_PASSWORD: devtest
+      PGDATA: /database/
+      #tty: true
+      #stdin_open: true
+      #command: /bin/ash

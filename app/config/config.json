@@ -1,0 +1,6 @@
+{
+	"dbURL":"postgres",
+	"dbName":"vendingdb",
+	"dbPass":"devtest",
+	"dbUser":"postgres"
+}

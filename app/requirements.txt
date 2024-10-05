@@ -1,0 +1,9 @@
+Flask
+waitress
+sqlalchemy
+sqlalchemy-utils
+psycopg2
+flask-sqlalchemy
+pytest-flask
+#flask-apscheduler
+#requests
