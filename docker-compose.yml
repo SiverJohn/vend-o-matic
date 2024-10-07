@@ -12,10 +12,10 @@ services:
       HOST: postgres
       PASSWORD: devtest
       USER: postgres
-    tty: true
-    stdin_open: true
-    command: sh -c "pip install -r requirements.txt && /bin/ash"
-      #command: sh -c "pip install -r requirements.txt && python devUtils.py && python main.py"
+    #tty: true
+    #stdin_open: true
+    #command: sh -c "pip install -r requirements.txt && /bin/ash"
+    command: sh -c "pip install -r requirements.txt && python vendOmatic.py"
   postgres:
     image: postgres:alpine
     working_dir: /database

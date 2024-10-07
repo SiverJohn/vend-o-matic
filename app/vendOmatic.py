@@ -1,7 +1,9 @@
 from flask import Flask
 from blueprints import bp
+from datafuncs import setupDB
 
 def createApp(config):
+    setupDB()
     app = Flask(__name__)
     app.config.from_mapping(config)
     app.register_blueprint(bp)
