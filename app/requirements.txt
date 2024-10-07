@@ -1,7 +1,4 @@
 Flask
 waitress
-sqlalchemy
-sqlalchemy-utils
-psycopg2
-flask-sqlalchemy
+psycopg[binary]
 pytest-flask
