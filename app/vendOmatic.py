@@ -2,6 +2,7 @@ from flask import Flask
 from blueprints import bp
 from datafuncs import setupDB
 
+
 def createApp(config):
     setupDB()
     app = Flask(__name__)

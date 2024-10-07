@@ -1,5 +1,6 @@
 from flask import Blueprint, request, Response, json
 import datafuncs as dataf
+
 bp = Blueprint("root", __name__)
 
 
@@ -7,7 +8,7 @@ bp = Blueprint("root", __name__)
 def coinManagement():
     if request.method == "PUT":
         inputJSON = request.get_json()
-        (success,coins) = dataf.attempToInputCoin(inputJSON)
+        (success, coins) = dataf.attempToInputCoin(inputJSON)
         if success:
             resp = Response(
                 status="204",
@@ -61,7 +62,7 @@ def inventoryManagement(idx=-1):
             return resp
         if stock > 0:
             if coins >= 2:
-                stock -=1
+                stock -= 1
                 coins = dataf.returnStoredCoins(2)
                 dataf.updateItemStock(idx, stock)
                 resp = Response(

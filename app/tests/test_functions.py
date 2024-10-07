@@ -1,9 +1,11 @@
 import sys
 import pytest
 import os
+
 sys.path.append("./")
 import vendOmatic as vom
 import datafuncs as dataf
+
 
 @pytest.fixture
 def app():
@@ -11,13 +13,13 @@ def app():
     config = {"TESTING": True}
     app = vom.createApp(config)
 
-    dataf.createDB('test',True)
-    os.environ['DBNAME']='test'
+    dataf.createDB("test", True)
+    os.environ["DBNAME"] = "test"
     dataf.setupDB()
     yield app
 
-    del os.environ['DBNAME']
-    dataf.dropDB('test')
+    del os.environ["DBNAME"]
+    dataf.dropDB("test")
 
 
 @pytest.fixture
@@ -25,7 +27,7 @@ def client(app):
     return app.test_client()
 
 
-#def test_coin_insert_success(client):
+# def test_coin_insert_success(client):
 #    response = client.put("/", json={"coin": 1})
 #    response = client.put("/", json={"coin": 1})
 #    assert response.headers[0] == ("X-Coins", "1")
