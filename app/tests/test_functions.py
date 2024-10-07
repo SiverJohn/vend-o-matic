@@ -72,6 +72,7 @@ def test_purchasing(client):
     assert response.headers[0] == ("X-Coins", "1")
     response = client.put("/", json={"coin": 1})
     response = client.put("/inventory/1")
+    assert response.get_json()["quantity"] == 1
     assert response.headers[0] == ("X-Coins", "0")
     assert response.headers[1] == ("X-Inventory-Remaining", "4")
 

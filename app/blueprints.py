@@ -66,6 +66,7 @@ def inventoryManagement(idx=-1):
                 coins = dataf.returnStoredCoins(2)
                 dataf.updateItemStock(idx, stock)
                 resp = Response(
+                    response=json.dumps({"quantity": 1}),
                     status="200",
                     headers={
                         "X-Coins": coins,
